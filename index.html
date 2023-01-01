@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="estilo.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <header class="cabecera">
+        <picture style="margin: 10px">
+          <source media="(min-width: 500px)" srcset="Logo.png" />
+          <img id="imagenTitulo" src="Logo.png" alt="Logo CIFP" />
+        </picture>
+        <h1 id="titulo">Elementos Urbanos</h1>
+      </header>
+
+      <article class="menu">
+       
+      </article>
+
+      <article aria-label="Datos elemento" class="datosdelejercicio">
+        <header>
+          <h3>Datos elemento</h3>
+        </header>
+        <fieldset>
+          <div class="container">
+            <form
+              action="http://www.informaticasc.com/daw_2122/CiudadI/ElementosUrbanos/pdf/ListadoElementosUrbanos.php"
+              id="form"
+              method="post"
+            >
+              <div class="row">
+                <div class="col-25">
+                  <label for="cId">Id</label>
+                </div>
+                <div class="col-75">
+                  <input
+                    pattern="^[0-9]+$"
+                    type="text"
+                    id="cId"
+                    name="cId"
+                    placeholder="Números de 0-9"
+                    style="width: 100px"
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="cNombre">Nombre</label>
+                </div>
+                <div class="col-75">
+                  <input
+                    pattern="(?=^.{1,50}$)[a-zA-Z/ áéíóú ]+"
+                    type="text"
+                    id="cNombre"
+                    name="cNombre"
+                    placeholder="50 Caractedres de a-zAZ áéíóú"
+                    style="width: 300px"
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="cDescripcion">Descripción</label>
+                </div>
+                <div class="col-75">
+                  <input
+                    pattern="(?=^.{1,50}$)[a-zA-Z0-9/ áéíóú]+"
+                    type="text"
+                    id="cDescripcion"
+                    name="cDescripcion"
+                    placeholder="150 Caractedres de a-zAZ0-9áéíóú"
+                    style="width: 500px"
+                  />
+                  <textarea
+                    style="width: 500px; height: 100px"
+                    cols="100"
+                    id="editorNotas"
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-25">
+                  <label for="cTipo">Tipo</label>
+                </div>
+                <div class="col-75">
+                  <input
+                    pattern="^Alcantarilla$|^Sucia$|^Limpia$|^Farola$|^Papelera$|^Jardin$|^Datos$|^Eléctrica$"
+                    type="text"
+                    id="cTipo"
+                    name="cTipo"
+                    placeholder="Alcantarilla|Sucia|Limpia|Farola|Papelera|Jardin|Datos|Eléctrica"
+                    style="width: 200px"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-25">
+                  <label for="cLatitud">Latitud</label>
+                </div>
+                <div class="col-75">
+                  <input
+                    pattern="^[0-9.]*$"
+                    type="text"
+                    id="cLatitud"
+                    name="cLatitud"
+                    placeholder="0-9,"
+                    style="width: 220px"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-25">
+                  <label for="cLongitud">Longitud</label>
+                </div>
+                <div class="col-75">
+                  <input
+                    pattern="^[-][0-9.]*$"
+                    type="text"
+                    id="cLongitud"
+                    name="cLongitud"
+                    placeholder="-0-9,"
+                    style="width: 220px"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-25">
+                  <label for="cFecahac">Fecha Construc.</label>
+                </div>
+                <div class="col-75">
+                  <input
+                    pattern="^[0-9]{2}[-][0-9]{2}[-][0-9]{4}$"
+                    type="text"
+                    id="cFecahac"
+                    name="cFecahac"
+                    placeholder="dd-mm-yyyy"
+                    style="width: 100px"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-25">
+                  <label for="cFecaham">Fecha Mantmto.</label>
+                </div>
+                <div class="col-75">
+                  <input
+                    pattern="^[0-9]{2}[-][0-9]{2}[-][0-9]{4}$"
+                    type="text"
+                    id="cFecaham"
+                    name="cFecaham"
+                    placeholder="dd-mm-yyyy"
+                    style="width: 100px"
+                  />
+                </div>
+              </div>
+              Edad: <input type="number" name="numero" step="0" min="0"/> Fecha<input
+                type="date"
+                name="fechanac"
+                step="1"
+              />
+              <button type="submit" title="submit">
+                <img src="Logo.png" />
+              </button>
+            </form>
+          </div>
+        </fieldset>
+      </article>
+
+      <article class="cajamapa">
+        <header>
+          <h3>Mapa</h3>
+        </header>
+        <div class="map_canvas" id="map_canvas"></div>
+        <h5 id="direccionMapa"></h5>
+      </article>
+
+      <footer class="pie">
+        Desarrollo de Aplicaciones Web(<cite>DAW</cite>) &copy; CIFP Santa
+        Catalina
+      </footer>
+    </main>
+  </body>
+  <script
+    type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeNRBEIWYeWRRvY8On_9pkSD1_J_zLykQ&libraries=geometry"
+  ></script>
+  <script type="text/javascript" src="validarForm.js"></script>
+  <script type="text/javascript" src="llamarMapa.js"></script>
+</html>
